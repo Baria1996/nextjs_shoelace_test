@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# shoelace
+public/assets/icons
+
 # production
 /build
 
