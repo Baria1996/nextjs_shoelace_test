@@ -1,0 +1,135 @@
+.wrapper {
+  font-family: var(--sl-font-sans);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: var(--sl-color-cyan-900);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  padding: var(--sl-spacing-small);
+  color: var(--sl-color-neutral-0);
+  font-weight: var(--sl-font-weight-bold);
+}
+
+.searchbar-container {
+  min-width: 270px;
+}
+
+.searchbar-container .search-icon {
+  margin-left: var(--sl-spacing-small);
+}
+
+.navcontrols-container {
+  margin: var(--sl-spacing-small);
+  color: var(--sl-color-neutral-0);
+}
+
+.map-image {
+  position: static !important; /* TODO: why is the position set to absolute to begin with? */
+}
+
+.slider::part(base) {
+  --track-color-active: var(--sl-color-primary-600);
+  --track-color-inactive: var(--sl-color-primary-200);
+}
+
+.content > div {
+  border: 1px solid var(--sl-color-neutral-300);
+  padding: var(--sl-spacing-x-small);
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  grid-area: controls;
+  gap: var(--sl-spacing-2x-small);
+}
+
+.dtg-container {
+  grid-area: dtg;
+}
+
+.dtg-container .dtg-buttons {
+  display: flex;
+  gap: var(--sl-spacing-2x-small);
+  flex-wrap: wrap;
+}
+
+.dtg-container .play-pause-buttons {
+  display: flex;
+  gap: var(--sl-spacing-2x-small);
+  flex-wrap: wrap;
+  margin-top: var(--sl-spacing-small);
+  justify-content: center;
+}
+
+.map-container {
+  grid-area: map;
+}
+
+.slider-container {
+  grid-area: slider;
+}
+
+.gif-container {
+  grid-area: gif;
+  display: flex;
+  gap: var(--sl-spacing-2x-small);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.charts-container {
+  grid-area: charts;
+}
+
+.content {
+  display: grid;
+  flex: 1;
+  grid-template:
+    "map" auto
+    "controls" min-content
+    "dtg" min-content
+    /* "charts" 0
+    "gif" 0 */
+    "slider" min-content
+    / 100%;
+}
+
+/* the following aspect ratios should be the same as the ones used in layout's state */
+
+@media screen and (max-aspect-ratio: 0.75) {
+  .charts-container {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+  }
+}
+
+@media screen and (min-aspect-ratio: 0.75) {
+  /* .content {
+    display: grid;
+    flex: 1;
+    grid-template:
+      "map" auto
+      "controls" min-content
+      "dtg" auto
+      "charts" auto
+      "gif" auto
+      "slider" min-content
+      / 100%;
+  } */
+}
+
+@media screen and (min-aspect-ratio: 1.2) {
+}
