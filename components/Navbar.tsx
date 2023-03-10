@@ -6,7 +6,7 @@ export default function Navbar(props: any) {
     <div className="navbar">
       <div className="logo-container">
         WXCHARTS
-        {" " + screenLayout}
+        {" (" + screenLayout + ")"}
       </div>
       {screenLayout !== screenLayouts.mobile && (
         <div className="searchbar-container">

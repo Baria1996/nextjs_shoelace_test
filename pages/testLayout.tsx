@@ -10,7 +10,7 @@ import {
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 
-// the following aspect ratios should be the same as the ones used in css
+// the following aspect ratios must be the same as the ones used in css
 const maxAspectRatios = {
   mobile: 0.75,
   tablet: 1.2,
@@ -25,6 +25,7 @@ const screenLayouts = {
 export default function TestLayout() {
   const testDTGs = Array.from(Array(20).keys());
   const [screenLayout, setScreenLayout] = useState(screenLayouts.mobile);
+  const [showCharts, setShowCharts] = useState(false);
 
   function handleWindowSizeChange() {
     const windowAspectRatio = window.innerWidth / window.innerHeight;
@@ -42,7 +43,12 @@ export default function TestLayout() {
     setScreenLayout(layout);
   }
 
+  function handleMapClick() {
+    if (screenLayout === screenLayouts.mobile) setShowCharts(true);
+  }
+
   useEffect(() => {
+    // TODO: also add event listener on load event
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
@@ -58,7 +64,7 @@ export default function TestLayout() {
         <Navbar screenLayout={screenLayout} screenLayouts={screenLayouts} />
         <div className="content">
           {/* map */}
-          <div className="map-container">
+          <div className="map-container" onClick={handleMapClick}>
             <Image
               className="map-image"
               src="/assets/images/map.jpg"
@@ -141,7 +147,30 @@ export default function TestLayout() {
           </div>
 
           {/* charts */}
-          <div className="charts-container">charts</div>
+          <div
+            className={`charts-container ${
+              screenLayout === screenLayouts.mobile && showCharts
+                ? ""
+                : "d-none"
+            }`}
+          >
+            {screenLayout === screenLayouts.mobile && (
+              <SlButton
+                variant="text"
+                onClick={() => {
+                  setShowCharts(false);
+                }}
+              >
+                <SlIcon name="caret-left-square-fill"></SlIcon>
+              </SlButton>
+            )}
+            <Image
+              className="map-image"
+              src="/assets/images/charts.png"
+              alt="chart"
+              fill={true}
+            />
+          </div>
         </div>
       </div>
     </>

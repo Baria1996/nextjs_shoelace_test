@@ -1,3 +1,10 @@
+/* utility classes ========================================================================== */
+.d-none {
+  display: none;
+}
+
+/* layout styling ========================================================================== */
+
 .wrapper {
   font-family: var(--sl-font-sans);
   display: flex;
@@ -6,7 +13,7 @@
 }
 
 .navbar {
-  background-color: var(--sl-color-cyan-900);
+  background-color: var(--sl-color-neutral-1000);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +39,7 @@
 }
 
 .map-image {
-  position: static !important; /* TODO: why is the position set to absolute to begin with? */
+  position: relative !important; /* TODO: why is the position set to absolute to begin with? */
 }
 
 .slider::part(base) {
@@ -98,38 +105,61 @@
     "map" auto
     "controls" min-content
     "dtg" min-content
-    /* "charts" 0
-    "gif" 0 */
     "slider" min-content
     / 100%;
 }
 
-/* the following aspect ratios should be the same as the ones used in layout's state */
+/* media queries ==========================================================================
+  Note: the following aspect ratios must be the same as the ones used in layout's state
+ */
 
+/* mobile */
 @media screen and (max-aspect-ratio: 0.75) {
   .charts-container {
-    display: none;
     position: absolute;
-    height: 100%;
+    height: -webkit-fill-available;
     width: 100%;
-    background-color: red;
+    background-color: lightgrey;
   }
 }
 
+/* tablet */
 @media screen and (min-aspect-ratio: 0.75) {
-  /* .content {
-    display: grid;
-    flex: 1;
+  .content {
     grid-template:
-      "map" auto
-      "controls" min-content
-      "dtg" auto
-      "charts" auto
-      "gif" auto
-      "slider" min-content
-      / 100%;
-  } */
+    /* all charts on 1 side: */
+      /* "map charts" auto
+      "controls charts" min-content
+      "dtg charts" min-content
+      "gif charts" auto
+      "slider charts" min-content
+      / 60% 40%; */
+
+    /* charts below map: */
+      /* "map controls" min-content
+      "map gif" auto
+      "charts dtg" min-content
+      "charts dtg" auto
+      "charts slider" min-content
+      / 50% 50%; */
+
+    /* charts next to map: */
+      "map charts" auto
+      "map charts" auto
+      "map charts" auto
+      "dtg controls" min-content
+      "slider gif" min-content
+      / 60% 40%;
+  }
+  .charts-container {
+    display: block;
+  }
+
+  .controls-container {
+    flex-direction: column;
+  }
 }
 
+/* desktop */
 @media screen and (min-aspect-ratio: 1.2) {
 }
