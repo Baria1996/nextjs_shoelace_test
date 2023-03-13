@@ -162,4 +162,13 @@
 
 /* desktop */
 @media screen and (min-aspect-ratio: 1.2) {
+  .content {
+    grid-template:
+      "controls map charts" auto
+      "controls map charts" auto
+      "dtg map charts" auto
+      "dtg map charts" auto
+      "gif slider charts" min-content
+      / 15% 60% 25%;
+  }
 }
