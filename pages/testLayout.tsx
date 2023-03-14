@@ -14,17 +14,19 @@ import { useEffect, useState } from "react";
 const maxAspectRatios = {
   mobile: 0.75,
   tablet: 1.2,
+  desktop: 1.9,
 };
 
 const screenLayouts = {
   mobile: "mobile",
   tablet: "tablet",
   desktop: "desktop",
+  widescreen: "widescreen",
 };
 
 export default function TestLayout() {
   const testDTGs = Array.from(Array(20).keys());
-  const [screenLayout, setScreenLayout] = useState(screenLayouts.mobile);
+  const [screenLayout, setScreenLayout] = useState(screenLayouts.desktop);
   const [showCharts, setShowCharts] = useState(false);
 
   function handleWindowSizeChange() {
@@ -37,8 +39,13 @@ export default function TestLayout() {
       windowAspectRatio < maxAspectRatios.tablet
     ) {
       layout = screenLayouts.tablet;
-    } else {
+    } else if (
+      windowAspectRatio >= maxAspectRatios.tablet &&
+      windowAspectRatio < maxAspectRatios.desktop
+    ) {
       layout = screenLayouts.desktop;
+    } else {
+      layout = screenLayouts.widescreen;
     }
     setScreenLayout(layout);
   }
