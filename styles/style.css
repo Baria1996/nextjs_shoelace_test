@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .navbar {
@@ -129,7 +129,7 @@
 @media screen and (min-aspect-ratio: 0.75) {
   .content {
     grid-template:
-    /* only charts on the right: */
+    /* charts on the right: */
       "map charts" auto
       "controls charts" min-content
       "dtg charts" min-content
@@ -160,7 +160,7 @@
   }
 }
 
-/* desktop */
+/* desktop and tablet (landscape) */
 @media screen and (min-aspect-ratio: 1.2) {
   .content {
     grid-template:
@@ -172,7 +172,7 @@
   }
 }
 
-/* wide screen */
+/* wide screen and mobile (landscape) */
 @media screen and (min-aspect-ratio: 1.9) {
   .content {
     grid-template:

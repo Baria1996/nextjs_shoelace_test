@@ -8,6 +8,7 @@ import {
   SlIcon,
 } from "@/components/SLComponents";
 import Navbar from "@/components/Navbar";
+import Charts from "@/sections/Charts";
 import { useEffect, useState } from "react";
 
 // the following aspect ratios must be the same as the ones used in css
@@ -171,12 +172,13 @@ export default function TestLayout() {
                 <SlIcon name="caret-left-square-fill"></SlIcon>
               </SlButton>
             )}
-            <Image
+            {/* <Image
               className="map-image"
               src="/assets/images/charts.png"
               alt="chart"
               fill={true}
-            />
+            /> */}
+            <Charts />
           </div>
         </div>
       </div>
