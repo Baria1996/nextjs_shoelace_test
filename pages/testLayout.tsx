@@ -127,28 +127,6 @@ export default function TestLayout() {
             </div>
           </div>
 
-          {/* gif */}
-          {screenLayout !== screenLayouts.mobile && (
-            <div className="gif-container">
-              <div>GIF: </div>
-              <SlButton variant="primary" size="small" outline>
-                Start
-              </SlButton>
-              <SlButton variant="primary" size="small" outline>
-                End
-              </SlButton>
-              <SlButton variant="primary" size="small" outline>
-                Step
-              </SlButton>
-              <SlButton variant="primary" size="small" outline>
-                Speed
-              </SlButton>
-              <SlButton variant="primary" size="small">
-                Go
-              </SlButton>
-            </div>
-          )}
-
           {/* slider */}
           <div className="slider-container">
             <SLRange className="slider" value={20} />

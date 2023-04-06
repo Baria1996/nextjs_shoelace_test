@@ -20,6 +20,7 @@ export default function Navbar(props: any) {
         </div>
       )}
       <div className="navcontrols-container">
+        <div className="gif-button">GIF</div>
         <SlIcon name="gear-fill"></SlIcon>
       </div>
     </div>
