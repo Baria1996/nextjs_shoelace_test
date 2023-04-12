@@ -1,3 +1,7 @@
+:root {
+  --navbar-height: 40px;
+}
+
 /* utility classes ========================================================================== */
 .d-none {
   display: none;
@@ -18,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: var(--navbar-height);
 }
 
 .logo-container {
@@ -59,7 +64,7 @@
 
 .content > div {
   border: 1px solid var(--sl-color-neutral-300);
-  padding: var(--sl-spacing-2x-small);
+  /* padding: var(--sl-spacing-2x-small); */
 }
 
 .controls-container {
@@ -93,13 +98,19 @@
 
 .slider-container {
   grid-area: slider;
+  padding: var(--sl-spacing-2x-small);
 }
 
 .charts-container {
   grid-area: charts;
 }
 
+#charts-wrapper {
+  height: 100%;
+}
+
 .content {
+  height: calc(100vh - var(--navbar-height));
   display: grid;
   flex: 1;
   grid-template:
@@ -128,26 +139,11 @@
 @media screen and (min-aspect-ratio: 0.75) {
   .content {
     grid-template:
-    /* charts on the right: */
-      /* "map charts" auto
-      "controls charts" min-content
-      "dtg charts" min-content
-      "slider slider" min-content
-      / 65% 35%; */
-
-    /* charts and controls on the right */
       "map charts" auto
       "dtg charts" auto
       "controls charts" auto
-      "slider slider" min-content
+      "slider charts" min-content
       / 65% 35%;
-
-    /* charts below map: */
-    /* "map controls" min-content
-      "map controls" min-content
-      "charts dtg" auto
-      "charts slider" min-content
-      / 65% 35%; */
   }
   .charts-container {
     display: block;
@@ -166,7 +162,7 @@
       "controls map charts" auto
       "dtg map charts" min-content
       "dtg slider charts" min-content
-      / 20% 55% 25%;
+      / 17% 60% 23%;
   }
 }
 
