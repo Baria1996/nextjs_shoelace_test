@@ -48,6 +48,14 @@ export default function Home() {
           </Link>
         </div>
 
+        <div className={styles.description}>
+          <Link href="/testChart" rel="noopener noreferrer">
+            <p className={inter.className}>
+              Go to <code>test chart</code>
+            </p>
+          </Link>
+        </div>
+
         <div className={styles.center}>
           <Image
             className={styles.logo}
