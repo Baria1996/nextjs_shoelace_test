@@ -44,3 +44,13 @@ export const SlMenuItem = dynamic(
   () => import("@shoelace-style/shoelace/dist/react/menu-item"),
   { ssr: false }
 );
+
+export const SlTree = dynamic(
+  () => import("@shoelace-style/shoelace/dist/react/tree"),
+  { ssr: false }
+);
+
+export const SlTreeItem = dynamic(
+  () => import("@shoelace-style/shoelace/dist/react/tree-item"),
+  { ssr: false }
+);

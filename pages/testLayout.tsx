@@ -3,13 +3,14 @@ import Image from "next/image";
 import {
   SLRange,
   SlButton,
-  SLSelect,
-  SLOption,
   SlIcon,
+  SlTree,
+  SlTreeItem,
 } from "@/components/SLComponents";
 import Navbar from "@/components/Navbar";
 import Charts from "@/sections/Charts";
 import { useEffect, useState } from "react";
+import * as wxc_data from "@/utils/wxc_data.json";
 
 // the following aspect ratios must be the same as the ones used in css
 const maxAspectRatios = {
@@ -29,6 +30,7 @@ export default function TestLayout() {
   const testDTGs = Array.from(Array(20).keys());
   const [screenLayout, setScreenLayout] = useState(screenLayouts.desktop);
   const [showCharts, setShowCharts] = useState(false);
+  console.log(wxc_data.length);
 
   function handleWindowSizeChange() {
     const windowAspectRatio = window.innerWidth / window.innerHeight;
@@ -56,7 +58,7 @@ export default function TestLayout() {
   }
 
   useEffect(() => {
-    // TODO: also add event listener on load event
+    handleWindowSizeChange();
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
@@ -83,45 +85,79 @@ export default function TestLayout() {
 
           {/* controls */}
           <div className="controls-container">
-            <SLSelect placeholder="Model" size="small">
-              <SLOption value="option-1">Option 1</SLOption>
-            </SLSelect>
-            <SLSelect placeholder="Run" size="small">
-              <SLOption value="option-1">Option 1</SLOption>
-            </SLSelect>
-            <SLSelect placeholder="Region" size="small">
-              <SLOption value="option-1">Option 1</SLOption>
-            </SLSelect>
-            <SLSelect placeholder="Chart" size="small">
-              <SLOption value="option-1">Option 1</SLOption>
-            </SLSelect>
+            <div className="selected-params">
+              <div className="selected-model">GFS</div>
+              <div className="runs">
+                <SlButton>00</SlButton>
+                <SlButton>06</SlButton>
+                <SlButton>12</SlButton>
+                <SlButton>24</SlButton>
+              </div>
+            </div>
+            <div className="tree-wrapper">
+              <SlTree>
+                <SlTreeItem expanded>
+                  Model
+                  <SlTreeItem>GFS</SlTreeItem>
+                  <SlTreeItem>GEFS</SlTreeItem>
+                  <SlTreeItem>UKMO</SlTreeItem>
+                  <SlTreeItem>GDPS</SlTreeItem>
+                  <SlTreeItem>ICON_EU</SlTreeItem>
+                  <SlTreeItem>ARPEGE</SlTreeItem>
+                  <SlTreeItem>AROME</SlTreeItem>
+                  <SlTreeItem>HRRR</SlTreeItem>
+                  <SlTreeItem>NAM-NEST</SlTreeItem>
+                </SlTreeItem>
+
+                <SlTreeItem>
+                  Region
+                  <SlTreeItem>Europe</SlTreeItem>
+                  <SlTreeItem>Atlantic</SlTreeItem>
+                </SlTreeItem>
+
+                <SlTreeItem>
+                  Chart
+                  <SlTreeItem>overview</SlTreeItem>
+                </SlTreeItem>
+              </SlTree>
+            </div>
           </div>
 
           {/* dtg */}
           <div className="dtg-container">
-            <div className="dtg-buttons">
-              {testDTGs.map((item, index) => {
-                return (
-                  <SlButton key={index} size="small">
-                    {item}
-                  </SlButton>
+            <div className="dtg-buttons-wrapper">
+              <SlButton> </SlButton>
+              {wxc_data.map((item, index) => {
+                return index % 2 === 0 ? (
+                  <SlButton key={index}>{index}</SlButton>
+                ) : (
+                  ""
                 );
               })}
+              <SlButton> </SlButton>
             </div>
-            <div className="play-pause-buttons">
-              <SlButton circle>
+          </div>
+
+          {/* play/pause buttons */}
+          <div className="play-container">
+            <div className="play-buttons-wrapper">
+              <SlButton>
                 <SlIcon name="skip-backward-fill"></SlIcon>
               </SlButton>
-              <SlButton circle>
+              <div className="custom-divider"></div>
+              <SlButton>
                 <SlIcon name="caret-left-fill"></SlIcon>
               </SlButton>
-              <SlButton circle>
+              <div className="custom-divider"></div>
+              <SlButton>
                 <SlIcon name="play-circle-fill"></SlIcon>
               </SlButton>
-              <SlButton circle>
+              <div className="custom-divider"></div>
+              <SlButton>
                 <SlIcon name="caret-right-fill"></SlIcon>
               </SlButton>
-              <SlButton circle>
+              <div className="custom-divider"></div>
+              <SlButton>
                 <SlIcon name="skip-forward-fill"></SlIcon>
               </SlButton>
             </div>
@@ -150,12 +186,6 @@ export default function TestLayout() {
                 <SlIcon name="caret-left-square-fill"></SlIcon>
               </SlButton>
             )}
-            {/* <Image
-              className="map-image"
-              src="/assets/images/charts.png"
-              alt="chart"
-              fill={true}
-            /> */}
             <Charts />
           </div>
         </div>

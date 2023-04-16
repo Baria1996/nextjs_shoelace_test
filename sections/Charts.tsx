@@ -35,7 +35,7 @@ export default function Charts() {
 
   const renderWindBarb = function (param: any, api: any) {
     const point = api.coord([api.value(dims.time), api.value(dims.windSpeed)]);
-    console.log(point);
+    // console.log(point);
     return {
       type: "group",
       children: [

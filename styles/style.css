@@ -7,6 +7,12 @@
   display: none;
 }
 
+.custom-divider {
+  height: inherit;
+  width: 1px;
+  background-color: var(--sl-color-neutral-300);
+}
+
 /* layout styling ========================================================================== */
 
 .wrapper {
@@ -47,7 +53,7 @@
 }
 
 .gif-button {
-  color: white;
+  color: var(--sl-color-neutral-0);
   font-weight: 900;
   margin-right: var(--sl-spacing-small);
 }
@@ -62,34 +68,84 @@
   --track-color-inactive: var(--sl-color-primary-200);
 }
 
-.content > div {
-  border: 1px solid var(--sl-color-neutral-300);
-  /* padding: var(--sl-spacing-2x-small); */
-}
-
 .controls-container {
-  display: flex;
-  justify-content: center;
+  padding: var(--sl-spacing-2x-small);
+  background-color: var(--sl-color-neutral-100);
   grid-area: controls;
   gap: var(--sl-spacing-2x-small);
+  max-height: 75vh;
+}
+
+.controls-container .selected-params {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--sl-spacing-small);
+}
+
+.controls-container .selected-model {
+  font-weight: var(--sl-font-weight-bold);
+  color: var(--sl-color-primary-600);
+}
+
+.controls-container .runs {
+  display: flex;
+  justify-content: space-evenly;
+  gap: var(--sl-spacing-3x-small);
+}
+
+.runs sl-button::part(base) {
+  font-size: var(--sl-font-size-2x-small);
+  height: var(--sl-spacing-large);
+  width: var(--sl-spacing-x-large);
+  line-height: var(--sl-line-height-normal);
+  padding-inline: var(--sl-spacing-2x-small);
 }
 
 .dtg-container {
   grid-area: dtg;
+  background-color: var(--sl-color-neutral-100);
+  padding: var(--sl-spacing-small) var(--sl-spacing-2x-small);
 }
 
-.dtg-container .dtg-buttons {
+.dtg-buttons-wrapper {
   display: flex;
-  gap: var(--sl-spacing-2x-small);
   flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--sl-spacing-3x-small);
 }
 
-.dtg-container .play-pause-buttons {
+.dtg-buttons-wrapper sl-button::part(base) {
+  font-size: var(--sl-font-size-2x-small);
+  height: var(--sl-spacing-large);
+  width: var(--sl-spacing-2x-large);
+  line-height: var(--sl-line-height-normal);
+  padding-inline: var(--sl-spacing-2x-small);
+}
+
+.play-container {
+  grid-area: play;
+  background-color: var(--sl-color-neutral-100);
+  padding: var(--sl-spacing-2x-small);
+}
+
+.play-buttons-wrapper {
   display: flex;
-  gap: var(--sl-spacing-2x-small);
   flex-wrap: wrap;
-  margin-top: var(--sl-spacing-small);
-  justify-content: center;
+  justify-content: space-between;
+  background-color: var(--sl-color-neutral-0);
+  border: 1px solid var(--sl-color-neutral-300);
+  border-radius: var(--sl-border-radius-small);
+  padding-block: var(--sl-spacing-2x-small);
+}
+
+.play-buttons-wrapper sl-button::part(base) {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--sl-color-primary-600);
+  font-size: var(--sl-font-size-x-small);
+  height: auto;
+  line-height: var(--sl-line-height-normal);
 }
 
 .map-container {
@@ -98,7 +154,8 @@
 
 .slider-container {
   grid-area: slider;
-  padding: var(--sl-spacing-2x-small);
+  padding-inline: var(--sl-spacing-small);
+  padding-bottom: var(--sl-spacing-2x-large);
 }
 
 .charts-container {
@@ -113,10 +170,12 @@
   height: calc(100vh - var(--navbar-height));
   display: grid;
   flex: 1;
+  /* applies to mobile (portrait) */
   grid-template:
     "map" min-content
     "controls" auto
     "dtg" auto
+    "play" auto
     "slider" min-content
     / 100%;
 }
@@ -141,17 +200,18 @@
     grid-template:
       "map charts" auto
       "dtg charts" auto
+      "play charts" min-content
       "controls charts" auto
       "slider charts" min-content
-      / 65% 35%;
+      / 60% 40%;
   }
   .charts-container {
     display: block;
   }
 
-  .controls-container {
+  /* .controls-container {
     flex-direction: column;
-  }
+  } */
 }
 
 /* desktop and tablet (landscape) */
@@ -159,10 +219,9 @@
   .content {
     grid-template:
       "controls map charts" auto
-      "controls map charts" auto
       "dtg map charts" min-content
-      "dtg slider charts" min-content
-      / 17% 60% 23%;
+      "play slider charts" min-content
+      / 17% 55% 28%;
   }
 }
 
@@ -173,7 +232,7 @@
       "controls map charts" min-content
       "controls map charts" auto
       "dtg map charts" min-content
-      "dtg slider charts" min-content
-      / 25% 50% 25%;
+      "play slider charts" min-content
+      / 20% 50% 30%;
   }
 }
