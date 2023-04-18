@@ -27,10 +27,8 @@ const screenLayouts = {
 };
 
 export default function TestLayout() {
-  const testDTGs = Array.from(Array(20).keys());
   const [screenLayout, setScreenLayout] = useState(screenLayouts.desktop);
   const [showCharts, setShowCharts] = useState(false);
-  console.log(wxc_data.length);
 
   function handleWindowSizeChange() {
     const windowAspectRatio = window.innerWidth / window.innerHeight;
@@ -126,7 +124,6 @@ export default function TestLayout() {
           {/* dtg */}
           <div className="dtg-container">
             <div className="dtg-buttons-wrapper">
-              <SlButton> </SlButton>
               {wxc_data.map((item, index) => {
                 return index % 2 === 0 ? (
                   <SlButton key={index}>{index}</SlButton>
@@ -134,7 +131,6 @@ export default function TestLayout() {
                   ""
                 );
               })}
-              <SlButton> </SlButton>
             </div>
           </div>
 

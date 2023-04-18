@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="31.900156mm"
+   height="32.000156mm"
+   viewBox="0 0 31.900156 32.000156"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="translate(-159.94992,-64.249922)">
+    <g
+       id="g1776"
+       transform="translate(-0.09999901)">
+      <g
+         id="use802"
+         transform="translate(160,64.2)"
+         style="fill:#ff0000">
+        <path
+           style="fill:#ff00ff;fill-opacity:0.199153;stroke:#000000;stroke-width:1.5;stroke-dasharray:none;paint-order:stroke fill markers"
+           d="M 16,31.406483 V 3.0317092"
+           id="path79863" />
+        <rect
+           style="fill:none;fill-opacity:0.199153;stroke:none;stroke-width:0.0998441;paint-order:stroke fill markers"
+           id="rect79865"
+           width="31.900156"
+           height="32.000156"
+           x="0.049922056"
+           y="0.049922056" />
+      </g>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.21946;paint-order:stroke fill markers"
+         d="m 175.95456,74.062198 10.13236,-3.330176 -10.13236,-3.330178 z"
+         id="use1093" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.21946;paint-order:stroke fill markers"
+         d="m 175.95456,74.062198 10.13236,-3.330176 -10.13236,-3.330178 z"
+         id="use1177" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.21946;paint-order:stroke fill markers"
+         d="m 175.95456,78.935933 10.13236,-3.330177 -10.13236,-3.330178 z"
+         id="use1201" />
+      <path
+         style="fill:none;fill-opacity:0.199153;stroke:#000000;stroke-width:1.5;stroke-dasharray:none;paint-order:stroke fill markers"
+         d="m 175.60034,88.58198 6.20688,-1.663128"
+         id="use1219" />
+      <path
+         style="fill:none;fill-opacity:0.199153;stroke:#000000;stroke-width:1.5;stroke-dasharray:none;paint-order:stroke fill markers"
+         d="m 175.49571,81.289104 10.38872,-2.783647"
+         id="use1231" />
+      <path
+         style="fill:none;fill-opacity:0.199153;stroke:#000000;stroke-width:1.5;stroke-dasharray:none;paint-order:stroke fill markers"
+         d="m 175.49571,84.968711 10.38872,-2.783647"
+         id="use1233" />
+    </g>
+  </g>
+</svg>
